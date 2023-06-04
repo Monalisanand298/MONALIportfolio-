@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,400;1,200&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+
+        <div class="circle-upper">
+            <div class="circle1">
+                <button id="open"><i class="fa-solid fa-bars"></i></button>
+                <button id="close"> <i class="fa-solid fa-xmark"></i> </button>
+
+            </div>
+        </div>
+
+        <div class="contactcontent">
+
+            <h1><span>CONTACT</span> ME</h1>
+            <div class="form">
+                <form method="post">
+                    <h3>FULL NAME:</h3>
+                    <input type="text" placeholder="name" id="name">
+                    <h3>EMAIL ID:</h3>
+                    <input type="email" placeholder="email" id="email" required on invalid="this.setCustomvalidity('Please enter your email') on input="this.setCustomvalidity('')">
+                    <h3>MESSAGE:</h3>
+                    <textarea placeholder="message" id="message" cols="30" rows="5"></textarea>
+                    <br>
+                    <button type="button" onclick="sendEmail()"  id="btn">SEND</button>
+                </form>
+            </div>
+<!-- 
+            <div class="contact">
+                <a href=""><button><i class="fa-brands fa-instagram"></i></button></a>
+
+                <a href=""> <button><i class="fa-brands fa-facebook"></i></button></a>
+
+                <a href=""><button><i class="fa-brands fa-twitter"></i></button></a>
+            </div> -->
+
+
+        </div>
+
+
+        <div class="circle-lower">
+            <div class="circle2">
+                <button id="mode">
+                    <img src="images/moon.svg" alt="" id="icon">
+                </button>
+            </div>
+        </div>
+
+    </div>
+
+    <nav>
+        <ul>
+            <li class="home"><a href="index.html">HO<span>ME</span></a></li>
+            <li class="about"><a href="about.html">ABOUT <span>ME</span></a></li>
+            <li><a href="contact.html" class="contact">CONTACT <span>ME</span></a></li>
+
+        </ul>
+    </nav>
+ // submiting form and senting to gmail by javascript
+    <script src="https://smtpjs.com/v3/smtp.js">
+    </script>
+
+    <script>
+        function sendEmail(){
+            let name = document.getElementById("name").value;
+            let email = document.getElementById("email").value;
+            let message = document.getElementById("message").value;
+
+            let body = "Name: " + name + "<br> Email: "+ email + "<br> Message: "+ message;
+
+            Email.send({
+                SecureToken : "a85aba06-e378-468a-8c5d-d2f453c48916",
+    To : 'monali298sanand@gmail.com',
+    From : "monali298sanand@gmail.com",
+    Subject : "message from contact form of portfolio",
+    Body : body
+}).then(
+  message => alert("Thank you for contacting me.")
+);
+        }
+    </script>
+
+
+
+    <script src="script.js"></script>
+</body>
+
+</html>
