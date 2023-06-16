@@ -18,14 +18,36 @@ document.querySelector("#open").addEventListener("click", function() {
 
 
 document.querySelector("#icon").addEventListener("click",function(){
+
     document.body.classList.toggle("dark-theme");
+    var theme;
     if(document.body.classList.contains("dark-theme")){
         icon.src = "images/sun.svg";
+        theme = "DARK";
+        
     }
     else{
         icon.src = "images/moon.svg";
+        theme = "LIGHT";
     }
+
+    //local variable for dark mode
+    //added theme var above for this
+
+localStorage.setItem("pagetheme",JSON.stringify(theme));
+
 });
+// function ke andhar local var set kiya.. bahar get kiya
+
+let gettheme = JSON.parse(localStorage.getItem('pagetheme'));
+   
+if(gettheme === "DARK")
+{
+    document.body.classList.toggle("dark-theme");
+    console.log(gettheme);
+}
+
+
 
 // contact me
 // const nameinput = document.querySelector("#name");
